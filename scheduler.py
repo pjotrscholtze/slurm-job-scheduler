@@ -17,6 +17,7 @@ class Limit:
     
     def _get_partition_jobs(self, partition, running_jobs, idle_partitions):
         partition_jobs = [j for j in running_jobs if j.partition == partition]
+        if partition not in idle_partitions: idle_partitions[partition] = 0
         return max(min(self.limits[partition] - len(partition_jobs), int(idle_partitions[partition])), 0)
 
     def get_allocation(self, running_jobs, idle_partitions):
