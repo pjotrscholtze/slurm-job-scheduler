@@ -34,6 +34,9 @@ class Experiment:
         subprocess.call("cmake . -DSPARQL=1", cwd=project_path, shell=True)
         subprocess.call("make", cwd=project_path, shell=True)
 
+    def exists(self, paths: Paths):
+        return os.path.exists(paths.get_project_path(self.name))
+
     def prepare(self, paths: Paths):
         project_commit_hash_file = paths.get_project_path(self.name) + "/project-commit-hash.txt"
 

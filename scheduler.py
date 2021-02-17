@@ -65,6 +65,7 @@ class Scheduler:
             self._ensure_prepare(peek_experiment)
 
     def experiments_informer(self, experiments):
+        experiments = [e for e in experiments if not e.exists(self.paths) or e.is_prepared]
         self.experiments_lock.acquire()
         self.experiments = experiments
         self.experiments_lock.release()
