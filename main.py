@@ -22,9 +22,7 @@ class Main:
         threading.Thread(target=scheduler.start).start()
         while True:
             input("Press [enter] to update experiment list")
-            scheduler.experiments_informer(list(experiments.get_experiments("temp")))
-            self.telegram.new_message("test")
-            print("x")
+            scheduler.experiments_informer(list(experiments.get_experiments(self.config.experiment_folder)))
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:

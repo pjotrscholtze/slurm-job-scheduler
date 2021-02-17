@@ -6,9 +6,10 @@ import logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s", datefmt="%d-%b-%y %H:%M:%S")
 
 class Config:
-    def __init__(self, secret, chat_id):
+    def __init__(self, secret, chat_id, experiment_folder):
         self.secret = secret
         self.chat_id = chat_id
+        self.experiment_folder = experiment_folder
 
 class Paths:
     def __init__(self, project_parent, build_cache, database):
