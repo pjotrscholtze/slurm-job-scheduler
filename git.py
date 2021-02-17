@@ -9,6 +9,6 @@ class Git:
     
     def get_commit_hash(self) -> str:
         cmd = "git rev-parse HEAD"
-        data = subprocess.check_output(cmd, shell=True, text=True, stderr=subprocess.STDOUT, cwd=self.project_dir + "/trident")
+        data = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT, cwd=self.project_dir + "/trident")
         if data[-1:] == '\n': data = data[:-1]
-        return data
+        return data.decode("utf-8")
